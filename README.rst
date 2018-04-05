@@ -10,7 +10,7 @@ JoblibS3
         :target: https://travis-ci.org/rcourivaud/joblibs3
 
 .. image:: https://readthedocs.org/projects/joblibs3/badge/?version=latest
-        :target: https://joblibs3.readthedocs.io/en/latest/?badge=latest
+        :target: http://joblibs3.readthedocs.io/fr/latest/?badge=latest
         :alt: Documentation Status
 
 
