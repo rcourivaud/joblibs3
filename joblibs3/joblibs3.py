@@ -7,7 +7,8 @@ import joblib
 
 
 class JoblibS3(object):
-    def __init__(self, aws_key, aws_private_key, bucket=None, compression_type="gzip", compression_rate=3):
+    def __init__(self, aws_key, aws_private_key, bucket=None,
+                 compression_type="gzip", compression_rate=3):
         self.aws_key = aws_key
         self.aws_private_key = aws_private_key
         self.compression_type = compression_type
@@ -35,9 +36,10 @@ class JoblibS3(object):
         if bucket_to_save is None:
             raise AttributeError("Bucket must be specified")
 
-        with s3io.open('s3://{0}/{1}'.format(bucket if bucket else self.bucket, filename), mode='r',
+        with s3io.open('s3://{0}/{1}'.format(bucket if bucket
+                                             else self.bucket,
+                                             filename), mode='r',
                        **self.credentials) as s3_file:
             obj = joblib.load(s3_file)
 
         return obj
-
