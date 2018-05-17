@@ -25,7 +25,7 @@ class FileS3(object):
         bucket_to_save = bucket if bucket else self.bucket
         if bucket_to_save is None:
             raise AttributeError("Bucket must be specified")
-        with s3io.open('s3://{0}/{1}'.format(bucket, filename), mode='w',
+        with s3io.open('s3://{0}/{1}'.format(bucket_to_save, filename), mode='w',
                        **self.credentials) as s3_file:
             s3_file.write(obj)
 
@@ -34,8 +34,7 @@ class FileS3(object):
         if bucket_to_save is None:
             raise AttributeError("Bucket must be specified")
 
-        with s3io.open('s3://{0}/{1}'.format(bucket if bucket
-                                             else self.bucket,
+        with s3io.open('s3://{0}/{1}'.format(bucket_to_save,
                                              filename), mode='r',
                        **self.credentials) as s3_file:
             obj = s3_file.read()
